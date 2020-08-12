@@ -56,4 +56,49 @@ const question = () => {
       }
     ])
     .then(res => {
- 
+        console.log(res.title)
+        console.log(res.description)
+        console.log(res.installation)
+        console.log(res.usage)
+        console.log(res.contribution)
+        console.log(res.choice)
+        console.log(res.github)
+        console.log(res.email)
+        var output = `
+  # Title: ${res.title}
+   ![badge](https://img.shields.io/badge/license-${res.choice}-blue.svg)
+  -------
+  ## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  ## Description:
+  ${res.description}
+  ## Installation:
+  ${res.installation}
+  ## Usage:
+   ${res.usage}
+  ## Contributing:
+  ${res.contribution}
+  ## Tests:
+  ${res.test}
+  ## License:
+  ${res.choice}
+  ## Questions:
+  Github Username: [${res.github}](https://github.com/${res.github})
+  Contact me via email at: ${res.email}
+            `
+        fs.writeFile('newreadme.md', output, (err) => {
+          if (err) { console.log(err) }
+          console.log('File Created!')
+        })
+      })
+      .catch(err => console.log(err))
+  
+  
+  }
+  question()
