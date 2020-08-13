@@ -1,3 +1,5 @@
+// worked on and collaborated with a few classmates
+
 const inquirer = require('inquirer')
 const fs = require('fs')
 const question = () => {
